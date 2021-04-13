@@ -1,0 +1,51 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.huawei.ohos.app'
+
+ohos {
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        maven {
+            //添加Maven仓地址，可以是本地Maven地址，也可以是远程Maven地址
+            url 'file://C:/fastwork/Huawei/Repo/'
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.huawei.ohos:hap:2.4.2.5'
+        classpath 'com.huawei.ohos:decctest:1.0.0.6'
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://repo.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://developer.huawei.com/repo/'
+        }
+        maven {
+            url 'file://C:/fastwork/Huawei/Repo/'
+        }
+        jcenter()
+    }
+}
+
+ext {
+    config = [
+            mavenLocalPath: 'C:/fastwork/Huawei/Repo/', //har存放的本地路径
+            vLibFileCore  : "1.0.0"
+    ]
+}

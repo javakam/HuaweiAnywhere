@@ -1,0 +1,59 @@
+apply plugin: 'maven-publish'
+
+def DEFAULT_POM_NAME = 'Harmony File Library'
+def DEFAULT_POM_VERSION = '1.0.0'                   //har包版本信息
+def DEFAULT_POM_ARTIFACT_ID = 'file.core'           //har包ID
+def DEFAULT_POM_GROUP_ID = 'com.ando.anywhere'      //项目组ID
+def DEFAULT_POM_PACKAGING = 'har'                   //包类型，固定为har
+def DEFAULT_POM_DESCRIPTION = 'File Library For Harmonyos'
+def MAVEN_USERNAME = 'admin'                        //远程Maven仓的用户名
+def MAVEN_PASSWORD = 'xxx'                          //远程Maven仓的密码
+def LOCAL_MAVEN_REPOSITORY_URL = config.mavenLocalPath  //本地Maven仓地址
+def REMOTE_MAVEN_REPOSITORY_URL = 'http://'             //远程Maven仓地址
+
+afterEvaluate { project ->
+    DEFAULT_POM_ARTIFACT_ID = project.name
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.debug  //指定发布的har包类型为debug或release
+                group = DEFAULT_POM_GROUP_ID
+                //artifactId = DEFAULT_POM_ARTIFACT_ID
+                //version = DEFAULT_POM_VERSION
+                artifactId PUBLISH_ARTIFACT_ID
+                version PUBLISH_VERSION
+                pom {
+                    //name = DEFAULT_POM_NAME
+                    name = PUBLISH_ARTIFACT_ID
+                    description = DEFAULT_POM_DESCRIPTION
+                    packaging = DEFAULT_POM_PACKAGING
+                    licenses {
+                        license {
+                            //协议类型，一般默认Apache License2.0的话不用改
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                url = LOCAL_MAVEN_REPOSITORY_URL  //发布到本地Maven仓
+                //发布到远程Maven仓的地址以及Maven仓的帐号和密码
+                /*
+                url = REMOTE_MAVEN_REPOSITORY_URL
+                 credentials {
+                    username MAVEN_USERNAME
+                    password MAVEN_PASSWORD
+                 }
+                */
+            }
+        }
+    }
+}
+
+/////////////////////
+//在Har模块的build.gradle中，添加HAR发布脚本。添加完成后，请点击Sync Now进行同步。
+//apply from:'../upload.gradle'
+//apply from: "${rootProject.projectDir}/upload.gradle"

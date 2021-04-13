@@ -1,0 +1,37 @@
+{
+  "app": {
+    "bundleName": "com.ando.anywhere",
+    "vendor": "ando",
+    "version": {
+      "code": 1,
+      "name": "1.0"
+    },
+    "apiVersion": {
+      "compatible": 5,
+      "target": 5,
+      "releaseType": "Beta1"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "abilities": [
+      {
+        "visible": true
+      }
+    ],
+    "deviceType": [
+      "phone",
+      "tv",
+      "tablet",
+      "wearable"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "library_file",
+      "moduleType": "har",
+      "installationFree": true
+    },
+    "package": "com.ando.file.core"
+  }
+}
