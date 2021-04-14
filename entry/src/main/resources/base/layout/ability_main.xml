@@ -3,16 +3,26 @@
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:orientation="vertical">
+    ohos:orientation="vertical"
+    ohos:padding="30vp">
 
     <Text
-        ohos:id="$+id:text_helloworld"
         ohos:height="match_content"
         ohos:width="match_content"
-        ohos:background_element="$graphic:background_ability_main"
-        ohos:layout_alignment="center"
-        ohos:text="$string:HelloWorld"
-        ohos:text_size="50"
+        ohos:bottom_margin="15vp"
+        ohos:text="Component"
+        ohos:text_color="#000"
+        ohos:text_size="14fp"/>
+
+    <Button
+        ohos:id="$+id:btn_next"
+        ohos:height="45vp"
+        ohos:width="match_parent"
+        ohos:background_element="$graphic:background_button_next"
+        ohos:horizontal_center="true"
+        ohos:text="TabList"
+        ohos:text_color="#FFF"
+        ohos:text_size="15fp"
         />
 
 </DirectionalLayout>

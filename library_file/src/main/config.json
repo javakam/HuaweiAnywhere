@@ -15,11 +15,6 @@
   "deviceConfig": {
   },
   "module": {
-    "abilities": [
-      {
-        "visible": true
-      }
-    ],
     "deviceType": [
       "phone",
       "tv",

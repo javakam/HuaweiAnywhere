@@ -29,6 +29,10 @@
     },
     "abilities": [
       {
+        "permissions": [
+          "ohos.permission.INTERNET",
+          "ohos.permission.DISTRIBUTED_DATASYNC"
+        ],
         "skills": [
           {
             "entities": [
